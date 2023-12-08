@@ -30,7 +30,7 @@ jobs:
 
     - name: Configurar o ChromeDriver
       run: |
-        webdrivermanager chrome
+        webdrivermanager --linkpath /usr/local/bin chrome
 
     - name: Run Robot Framework tests
       run: |
