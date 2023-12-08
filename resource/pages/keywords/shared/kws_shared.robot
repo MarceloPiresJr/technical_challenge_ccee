@@ -5,7 +5,6 @@ Resource            ${ROOT}/resource/main.robot
 
 
 *** Keywords ***
-
 Wait and Click Element
     [Documentation]    Aguardar o elemento estar visível e clica.
     [Arguments]    ${ELEMENT}    ${TIMEOUT}=20
