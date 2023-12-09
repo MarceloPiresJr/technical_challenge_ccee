@@ -89,7 +89,7 @@ cd /caminho/para/o/projeto
 ```
 Execute o seguinte comando para iniciar a execução dos testes:
 ```python
-robot -L trace -d Result/ -V ./resource/python/root.py tests/   
+robot -L trace -d Result/ -V ./resource/python/root.py -v BROWSER_TYPE:chrome tests/
 ```
 > Este comando executará todos os testes localizados no diretório tests.
 
