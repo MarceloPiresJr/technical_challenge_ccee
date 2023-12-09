@@ -30,15 +30,11 @@ jobs:
 
     - name: Configurar o ChromeDriver
       run: |
-        rm /usr/local/bin/chromedriver || true
-        CHROME_DRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.71/linux64/chrome-headless-shell-linux64.zip"
-        wget "$CHROME_DRIVER_URL" -O chromedriver.zip
-        unzip chromedriver.zip -d /usr/local/bin/
-        rm chromedriver.zip
+        webdrivermanager chrome --linkpath /usr/local/bin
 
     - name: Run Robot Framework tests
       run: |
-        chromedriver --url-base=/wd/hub --headless &
+        chromedriver --url-base=/wd/hub &
         robot -L trace -d Result/ -V ./resource/python/root.py -v BROWSER_TYPE:headlesschrome tests/
 
     - name: Publish test results
@@ -46,4 +42,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Test Results
-        path: /home/runner/work/testeCcee/testeCcee/Result/
+        path: /home/runner/work/testeVerity/testeVerity/Result/
