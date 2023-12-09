@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     DateTime
 Library     String
 Library     XML
-Library           FakerLibrary
+Library     FakerLibrary
 Library     ${ROOT}/resource/python/root.py
 # PAGE OBJECT
 Resource    ${ROOT}/resource/pages/elements/kws_shared_elements.robot
