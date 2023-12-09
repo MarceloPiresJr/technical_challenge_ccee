@@ -35,7 +35,7 @@ jobs:
     - name: Configurar o ChromeDriver
       run: |
         rm /usr/local/bin/chromedriver || true
-        CHROME_DRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.71/linux64/chromedriver-linux64.zip"
+        CHROME_DRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.71/linux64/chrome-headless-shell-linux64.zip"
         wget "$CHROME_DRIVER_URL" -O chromedriver.zip
         unzip chromedriver.zip -d /usr/local/bin/
         rm chromedriver.zip
@@ -45,7 +45,7 @@ jobs:
 
     - name: Run Robot Framework tests
       run: |
-        chromedriver --url-base=/wd/hub &
+        chromedriver --url-base=/wd/hub --headless &
         robot -d Result/ -V ./resource/python/root.py tests/
 
     - name: Publish test results
