@@ -5,7 +5,7 @@ Resource            ${ROOT}/resource/main.robot
 
 
 *** Variables ***
-${BROWSER}      chrome
+${BROWSER}      headlesschrome
 ${URL_BASE}     https://sampleapp.tricentis.com/101/app.php
 
 
