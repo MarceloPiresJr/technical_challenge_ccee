@@ -35,8 +35,7 @@ jobs:
     - name: Configurar o ChromeDriver
       run: |
         rm /usr/local/bin/chromedriver || true
-        CHROME_DRIVER_VERSION="119.0.6045.105"
-        CHROME_DRIVER_URL="https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip"
+        CHROME_DRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.71/linux64/chrome-headless-shell-linux64.zip"
         wget "$CHROME_DRIVER_URL" -O chromedriver.zip
         unzip chromedriver.zip -d /usr/local/bin/
         rm chromedriver.zip
