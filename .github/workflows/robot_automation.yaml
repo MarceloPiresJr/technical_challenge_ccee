@@ -35,7 +35,11 @@ jobs:
     - name: Configurar o ChromeDriver
       run: |
         rm /usr/local/bin/chromedriver || true
-        webdrivermanager --linkpath /usr/local/bin chrome:119.0.6045.105
+        CHROME_DRIVER_VERSION="119.0.6045.105"
+        CHROME_DRIVER_URL="https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip"
+        wget "$CHROME_DRIVER_URL" -O chromedriver.zip
+        unzip chromedriver.zip -d /usr/local/bin/
+        rm chromedriver.zip
 
     - name: Imprimir versão do ChromeDriver
       run: chromedriver --version
