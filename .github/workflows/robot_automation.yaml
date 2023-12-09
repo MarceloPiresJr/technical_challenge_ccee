@@ -46,6 +46,7 @@ jobs:
     - name: Run Robot Framework tests
       run: |
         chromedriver --url-base=/wd/hub --headless &
+        sleep 5
         robot -d Result/ -V ./resource/python/root.py tests/
 
     - name: Publish test results
