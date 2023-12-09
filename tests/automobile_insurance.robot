@@ -17,4 +17,4 @@ Preenche o formulario da aplicação
     E preencho o formulario "Select Price Option"
     E preencho o formulario "Send Quote"
     E envio o formulario
-    Então deve apresentar a mensagem de sucesso "Sending E-mail sucess"
+    Então deve apresentar a mensagem de sucesso "Sending e-mail success!"
