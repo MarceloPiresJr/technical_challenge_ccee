@@ -146,10 +146,10 @@ preencho o formulario "Send Quote"
 
     Wait and Input Text    ${send_quote.username}    Teste
 
-    ${random_generate_password}    Generate Random String    length=8    chars=[LETTTERS][NUMBERS][UPPER][LOWER]
-    Wait and Input Text    ${send_quote.password}    ${random_generate_password}
+    ${faker_password}  FakerLibrary.Password
+    Wait and Input Text    ${send_quote.password}    ${faker_password}
 
-    Wait and Input Text    ${send_quote.confirm_password}    ${random_generate_password}
+    Wait and Input Text    ${send_quote.confirm_password}    ${faker_password}
 
     Wait and Input Text    ${send_quote.comments}    Test comments
 
@@ -157,8 +157,10 @@ envio o formulario
     [Documentação]    Keyword responsável por clicar no botão send email.
     Click Button    ${next_buttons.button_next_send_email}
 
-deve apresentar a mensagem de sucesso "Sending E-mail sucess"
+deve apresentar a mensagem de sucesso "${expected_mensage}"
     [Documentação]    Verifica se a mensagem "Sending e-mail success!" é exibida corretamente após preencher o formulário "Send Quote".
     ...    Aguarda até que a janela pop-up de confirmação seja visível e então clica no botão de confirmação.
+
     Wait Until Element Is Visible    ${send_quote.pop_up_email_confirm}
+    Element Should Contain    ${send_quote.pop_up_email_confirm}    ${expected_mensage}
     Wait and Click Element    ${send_quote.confirm}
