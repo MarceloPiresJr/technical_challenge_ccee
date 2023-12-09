@@ -34,8 +34,11 @@ jobs:
 
     - name: Run Robot Framework tests
       run: |
-        chromedriver --url-base=/wd/hub &
-        robot -d Result/ -V ./resource/python/root.py tests/
+          wget -N https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          chmod +x chromedriver
+          sudo mv chromedriver /usr/local/bin/
+          robot -d Result/ -V ./resource/python/root.py tests/
 
     - name: Publish test results
       if: failure()
